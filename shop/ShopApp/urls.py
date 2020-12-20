@@ -21,4 +21,4 @@ urlpatterns = [
     path('change-qty/<str:ct_model>/<str:slug>/', ChangeQTY.as_view(), name='change_qty'),
     path('checkout', CheckoutView.as_view(), name='checkout'),
     path('make-order/', MakeOrderView.as_view(), name='make_order')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
