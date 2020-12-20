@@ -1,1 +1,1 @@
-web:waitress-serve --listen=*:8000 shop.wsgi:application
+web:waitress-server --listen=*:8000 shop.wsgi:application
