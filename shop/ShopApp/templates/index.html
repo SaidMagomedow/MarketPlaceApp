@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <title>05ru smoker</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <style>
+
+   #reg{
+     margin-left: 35%;
+   }
+
+   #div2 {
+     margin-top: 10%;
+   }
+   #form {
+     margin-top: 5%; /* Отступ сверху */
+     margin-left: 35%;
+   }
+	  body {
+	  
+  padding-top: 56px;
+}
+  div3 {
+  color: white;
+  }
+
+  #categories {
+  color: black;
+  background-color: light ;
+  }
+  #photo{
+   width: 250px;
+   height: 150px;
+  }
+
+
+  #rewiews{
+  color: red;
+  }
+
+  #category_products{
+  padding-top: 2%;
+  }
+   #contacts {
+
+      weidht: 250px;
+      padding-left: 1%;
+      padding-right: 0%;
+
+    }
+    #help_photo{
+      width: 1110px;
+      padding-left: 1%;
+    }
+    #telegram{
+      width: 1000px;
+      color: white;
+    }
+    #WatsApp{
+      color: white;
+    }
+    #telephone{
+      color: white;
+    }
+    #zap-order{
+      color: black;
+      align="center"
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">05ru курильщика</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.google.com/maps/dir//05.ru,+%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82+%D0%98%D0%BC%D0%B0%D0%BC%D0%B0+%D0%A8%D0%B0%D0%BC%D0%B8%D0%BB%D1%8F,+%D0%9C%D0%B0%D1%85%D0%B0%D1%87%D0%BA%D0%B0%D0%BB%D0%B0/@42.9802397,47.4411504,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x404ea04a2fa1b3b7:0x5d358ed571ab613a!2m2!1d47.4761698!2d42.9801822">Проложить маршрут</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Выход</a>
+          </li>
+          {% else  %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ShopApp:register' %}">Регистрация</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login/">Войти</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="/contacts/">Контакты</a>
+          </li>
+          {% if user.is_authenticated %}
+          <div3><li id="Hello">Привет,{{user.first_name}} </li></div3>
+          {% endif %}
+          <li class="nav-item ">
+            <a class="nav-link" href="/cart">Корзина
+              <span class="badge badge-pill badge-light">{{ cart.products.count }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      {% block category %}
+      <div class="col-lg-3">
+
+        <h1 class="my-4">Категории</h1>
+        <div class="list-group">
+          {% for categories in category %}
+          <a id="categories" href="category/{{ categories.slug }}/" class="list-group-item">{{ categories.name }}</a>
+          {% endfor %}
+        </div>
+      {% endblock %}
+      </div>
+      <!-- /.col-lg-3 -->
+      {% block content %}
+      {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+        {% endif %}
+
+      <div class="col-lg-9">
+
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="https://info.ringoo.ua/images/content/02-2018/26/rew_s9.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://ultratrade.ru/images/forum/post/76ac8d73efbda4a6630b5e9aaa1c9649.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://ylhsthewrangler.com/wp-content/uploads/2020/10/ec601490-f860-11ea-a7be-ef664df196fe-900x350.png" alt="Third slide">
+            </div>
+             <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://ae01.alicdn.com/kf/HTB1nQ.sX6LuK1Rjy0Fhq6xpdFXa4.jpg" alt="Four slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div class="row">
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="products/{{ product.category.slug }}/{{ product.slug }}/"><img class="card-img-top" src="{{ product.image.url }}" alt="" id="photo"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="products/{{ product.category.slug }}/{{ product.slug }}/">{{ product.title }}</a>
+                </h4>
+                <h5>{{ product.price }} руб</h5>
+                <p class="card-text"></p>
+              </div>
+              <div class="card-footer">
+                <a class="font-weight-bold" id="rewiews" target="_blank" href="https://irecommend.ru/srch?query={{ product.title }}">Отзывы: {{ product.reviews_in_y }}/5</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+        </div>
+
+        <!-- /.row -->
+
+      </div>
+      {% endblock content %}
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  {% block container %}
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Сайт был создан в 2020 &copy;</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  {% endblock %}
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

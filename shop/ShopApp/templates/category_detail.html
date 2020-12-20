@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block category %}
+{% endblock category %}
+{% block content %}
+<h1>Категория : {{ category.name }}</h1>
+    <div class="row">
+         {% for product in category_products %}
+          <div id="category_products" class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/products/{{ product.category.slug }}/{{ product.slug }}/"><img class="card-img-top" src="{{ product.image.url }}" alt="" id="photo"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/products/{{ product.category.slug }}/{{ product.slug }}/">{{ product.title }}</a>
+                </h4>
+                <h5>{{ product.price }} руб</h5>
+                <p class="card-text"></p>
+              </div>
+              <div class="card-footer">
+                <a class="font-weight-bold" id="rewiews" target="_blank" href="https://irecommend.ru/srch?query={{ product.title }}">Отзывы: {{ product.reviews_in_y }}/5</a>
+              </div>
+            </div>
+          </div>
+         {% endfor %}
+{% endblock content %}
+{% block container %}
+{% endblock container %}

@@ -1,0 +1,31 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Диагональ</td>
+      <td>{{ product.diagonal }}</td>.
+    </tr>
+      <tr>
+      <td>Тип дисплея</td>
+      <td>{{ product.type_display }}</td>.
+    </tr>
+      <tr>
+      <td>Разрешение экрана</td>
+      <td>{{ product.resolution }}</td>.
+    </tr>
+      {% if product.sd == True %}
+        <tr>
+        <td>Максимальный объем SD карты</td>
+        <td>{{ product.sd_volume_max }}</td>.
+        </tr>
+      {% endif %}
+    {% if product.smartTV == True %}
+      <tr>
+      <td>Смарт ТВ</td>
+      <td>Есть</td>.
+      {% else %}
+      <td>Смарт ТВ</td>
+      <td>Нет</td>.
+      {% endif %}
+      </tr>
+  </tbody>
+</table>

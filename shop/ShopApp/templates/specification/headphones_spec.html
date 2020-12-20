@@ -1,0 +1,27 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Вид</td>
+      <td>{{ product.view }}</td>
+    </tr>
+      <tr>
+      <td>Тип наушников</td>
+      <td>{{ product.wireless }}</td>
+    </tr>
+      <tr>
+    {% if product.microphone == True %}
+      <td>Наличие микрофона</td>
+        <td>Есть</td>
+    {% else %}
+      <td>Наличие микрофона</td>
+        <td>Нет</td>
+    {% endif %}
+      </tr>
+      <tr>
+      <td>Вид соединения</td>
+      <td>{{ product.Connection }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
