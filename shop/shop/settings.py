@@ -25,7 +25,7 @@ SECRET_KEY = '))^&j(wofp=gfcq5&z3z@+m9r5i6xs0rl65wezykvin^0q!3g_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['desktop-7878cf8', 'localhost', '127.0.0.1']
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,4 +133,3 @@ STATICFILES_DIRS = [(
 )]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
