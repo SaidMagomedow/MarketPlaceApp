@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '))^&j(wofp=gfcq5&z3z@+m9r5i6xs0rl65wezykvin^0q!3g_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['desktop-7878cf8', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['said-shop-project.herokuapp.com', '127.0.0.1:8000']
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
 
