@@ -1,1 +1,1 @@
-web:waitress-serve --listen=*:8000 shop.wsgi --log-file-
+web:waitress-serve shop.wsgi::application
