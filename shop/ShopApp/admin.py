@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelChoiceField, ModelForm, ValidationError
 from .models import *
-from PIL import Image
 from django.utils.safestring import mark_safe
 
 

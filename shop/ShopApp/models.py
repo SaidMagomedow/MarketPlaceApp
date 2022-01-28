@@ -1,13 +1,11 @@
-from typing import List, Any
-from django.shortcuts import render, redirect
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.urls import reverse
 from django.utils import timezone
-from django.contrib.auth.models import User
 
+User = get_user_model()
 
 def get_models_for_count(*model_names):
     return [models.Count(model_name) for model_name in model_names]
